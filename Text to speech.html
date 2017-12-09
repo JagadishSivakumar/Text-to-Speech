@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Jagadish Speech Recognintion</title>
+<meta charset ="UTF-8">
+<title>Text to Speech</title>
+</head>
+<style>
+h1{
+  color: cornflowerblue;
+}
+
+
+</style>
+<body bgcolor="white">
+
+  <h1><center>Jagadish Text to Speech</center></h1>
+
+  <p>This is a simple Text to speech webpage, my first step towards speech Recognition</p>
+
+  <input type="text" name="text" placeholder="Enter text here">
+
+  <a href="#" class="say">Pronounce</a>
+
+  <audio src="" class="speech" hidden></audio>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
+  </script>
+
+  <script>
+
+  $(function(){
+    $('a.say').on('click',function(e){
+      e.preventDefault();
+      var text=$('input[name="text"]').val();
+      text= encodeURIComponent(text);
+      console.log(text);
+      var url="https://translate.google.com/translate_tts?ie=UTF-8&total=1&idx=0&textlen=32&client=tw-ob&q=" + text +"&tl=en"
+      $('audio').attr('src',url).get(0).play();
+
+    });
+  });
+
+
+  </script>
+</body>
+</html>
